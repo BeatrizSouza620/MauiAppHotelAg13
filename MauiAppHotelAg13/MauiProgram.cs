@@ -1,0 +1,29 @@
+﻿using Microsoft.Extensions.Logging;
+
+namespace MauiAppHotelAg13
+{
+    public static class MauiProgram
+    {
+        public static MauiApp CreateMauiApp()
+        {
+            var builder = MauiApp.CreateBuilder();
+            builder
+                .UseMauiApp<App>()
+                .ConfigureFonts(fonts =>
+                {
+                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("ArsenalSC-Bold.ttf", "ArsenalSCBold");
+                    fonts.AddFont("ArsenalSC-BoldItalic.ttf", "ArsenalSCBoldItalic");
+                    fonts.AddFont("ArsenalSC-Italic.ttf", "ArsenalSCItalic");
+                    fonts.AddFont("ArsenalSC-Regular.ttf", "ArsenalSC");
+                });
+
+#if DEBUG
+    		builder.Logging.AddDebug();
+#endif
+
+            return builder.Build();
+        }
+    }
+}
