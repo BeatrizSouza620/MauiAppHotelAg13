@@ -9,47 +9,50 @@
     <VerticalStackLayout VerticalOptions="CenterAndExpand" Padding="10">
         <Label 
             Text="CÁLCULO DA DIÁRIA"
-            FontFamily="ArsenalSCBold"
+            FontFamily="ArsenalSC"
             FontSize="50"
-            TextColor="{StaticResource Nude}"/>
+            TextColor="{StaticResource Nude}"
+            HorizontalOptions="Center" />
 
         <Frame Padding="10"
                BackgroundColor="{StaticResource Nude}">
 
             <VerticalStackLayout>
-                <Grid RowDefinitions="Auto, Auto"
-                      ColumnDefinitions="*, *, 2*">
+                <Frame Margin="5" BackgroundColor="{StaticResource Nude}">
+                    <Grid RowDefinitions="Auto, Auto"
+                          ColumnDefinitions="*, *, 2*">
 
-                    <Label Grid.Row="0" Grid.Column="0"
-                           Text="Adultos:"
-                           TextColor="{StaticResource Verde}"/>
+                        <Label Grid.Row="0" Grid.Column="0"
+                               Text="Adultos:"
+                               TextColor="{StaticResource Verde}"/>
 
-                    <Label Grid.Row="0" Grid.Column="1"
-                           TextColor="{StaticResource VerdeMilitar}"
-                           Text="{Binding Value}"
-                           BindingContext="{x:Reference stp_adultos}"/>
+                        <Label Grid.Row="0" Grid.Column="1"
+                               TextColor="{StaticResource VerdeMilitar}"
+                               Text="{Binding Value}"
+                               BindingContext="{x:Reference stp_adultos}"/>
 
-                    <Stepper Grid.Row="0" Grid.Column="2"
-                             x:Name="stp_adultos"
-                             Minimum="0"
-                             Maximum="10"
-                             Increment="1" />
+                        <Stepper Grid.Row="0" Grid.Column="2"
+                                 x:Name="stp_adultos"
+                                 Minimum="0"
+                                 Maximum="10"
+                                 Increment="1" />
 
-                    <Label Grid.Row="1" Grid.Column="0"
-                           Text="Crianças:"
-                           TextColor="{StaticResource Verde}"/>
+                        <Label Grid.Row="1" Grid.Column="0"
+                               Text="Crianças:"
+                               TextColor="{StaticResource Verde}"/>
 
-                    <Label Grid.Row="1" Grid.Column="1"
-                           TextColor="{StaticResource VerdeMilitar}"
-                           Text="{Binding Value}"
-                           BindingContext="{x:Reference stp_criancas}"/>
+                        <Label Grid.Row="1" Grid.Column="1"
+                               TextColor="{StaticResource VerdeMilitar}"
+                               Text="{Binding Value}"
+                               BindingContext="{x:Reference stp_criancas}"/>
 
-                    <Stepper Grid.Row="1" Grid.Column="2"
-                             x:Name="stp_criancas"
-                             Minimum="0"
-                             Maximum="10"
-                             Increment="1" />
-                </Grid>
+                        <Stepper Grid.Row="1" Grid.Column="2"
+                                 x:Name="stp_criancas"
+                                 Minimum="0"
+                                 Maximum="10"
+                                 Increment="1" />
+                    </Grid>
+                </Frame>
 
                 <Label Text="ESCOLHA SUA SUÍTE"
                            FontFamily="OpenSansSemibold"
@@ -60,7 +63,8 @@
 
                 <Picker x:Name="pck_quarto"
                             Title="Selecione sua Acomodação"
-                            Margin="5" />
+                            Margin="5"
+                            ItemDisplayBinding="{Binding Descricao}" />
 
                 <Frame Padding="10"
                        Margin="10"
@@ -81,7 +85,8 @@
                             <DatePicker x:Name="dtpck_checkin"
                                         Format="dd/MM/yyyy"
                                         Margin="5"
-                                        TextColor="{StaticResource VerdeMilitar}"/>
+                                        TextColor="{StaticResource VerdeMilitar}"
+                                        DateSelected="dtpck_checkin_DateSelected" />
                         </HorizontalStackLayout>
 
                         <HorizontalStackLayout HorizontalOptions="Center">
@@ -98,7 +103,8 @@
                     </VerticalStackLayout>
                 </Frame>
 
-                <Button Text="Avançar"
+                <Button Clicked="Button_Clicked"
+                        Text="Avançar"
                         FontFamily="OpenSansSemibold"
                         TextColor="{StaticResource Nude}"
                         Padding="10"
