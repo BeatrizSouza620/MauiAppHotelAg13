@@ -9,7 +9,7 @@
     <VerticalStackLayout VerticalOptions="CenterAndExpand" Padding="10">
 
         <Label Text="INFORMAÇÕES DO APLICATIVO"
-               FontFamily="ArsenalSCBold"
+               FontFamily="ArsenalSC"
                FontSize="35"
                TextColor="{StaticResource Nude}"
                Margin="10"
